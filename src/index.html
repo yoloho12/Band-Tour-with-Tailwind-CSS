@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <script defer src="./assets/fontawesome/js/solid.min.js"></script>
+    <script defer src="./assets/fontawesome/js/fontawesome.min.js"></script>
+    <script>
+      window.onload = () => {
+        const mobileMenuIcon = document.getElementById("mobile-menu-button");
+        mobileMenuIcon.addEventListener("click", () => {
+          if (mobileMenuIcon.classList.contains("open")) {
+            mobileMenuIcon.classList.remove("open");
+          } else {
+            mobileMenuIcon.classList.add("open");
+          }
+        });
+        const ticketsMenuItem = document.getElementById("tickets-menu-item");
+        ticketsMenuItem.addEventListener("click", () => {
+          if (ticketsMenuItem.classList.contains("open")) {
+            ticketsMenuItem.classList.remove("open");
+          } else {
+            ticketsMenuItem.classList.add("open");
+          }
+        });
+        const scrollIcon = document.getElementById("scroll-icon");
+        scrollIcon.addEventListener("click", () => {
+          const headliners_section = document.getElementById("hls");
+          const section = headliners_section.offsetTop;
+          window.scrollTo({ top: section, behavior: "smooth" });
+        });
+        const lightDarkSwitch = document.getElementById("light-dark-switch");
+        lightDarkSwitch.addEventListener("click", () => {
+          if (document.body.classList.contains("dark")) {
+            document.body.classList.remove("dark");
+          } else {
+            document.body.classList.add("dark");
+          }
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <main class="dark:bg-gray-800">
+      <header class="text-zinc-800 dark:text-zinc-200">
+        <nav class="top-0 flex bg-gradient-to-r from-cyan-600 to-rose-200">
+          <div class="flex items-center gap-2 p-2">
+            <img
+              alt="logo"
+              class="w-12"
+              src="assets/images/logo-inverted.png"
+            />
+            <div class="text-2xl font-bold">
+              tw:<span class="text-cyan-200">mf</span>
+            </div>
+          </div>
+          <!-- Mobile -->
+          <div class="z-10 my-auto ml-auto block cursor-pointer pr-4 md:hidden">
+            <div id="mobile-menu-button" class="group peer">
+              <div
+                class="relative h-1 w-8 rounded-full bg-cyan-50 transition-all group-open:top-2 group-open:rotate-45"
+              ></div>
+              <div
+                class="mt-1 h-1 w-8 rounded-full bg-cyan-50 transition-all group-open:opacity-0"
+              ></div>
+              <div
+                class="relative mt-1 h-1 w-8 rounded-full bg-cyan-50 transition-all group-open:bottom-2 group-open:-rotate-45"
+              ></div>
+            </div>
+            <div
+              class="absolute top-[64px] left-0 hidden w-full bg-gradient-to-r from-cyan-600 to-rose-200 text-center font-bold text-cyan-800 transition ease-in-out peer-open:block"
+            >
+              <div
+                class="relative p-4 transition ease-in-out hover:bg-cyan-100/10 hover:text-cyan-100"
+              >
+                Home
+              </div>
+              <div
+                class="relative p-4 transition ease-in-out hover:bg-cyan-100/10 hover:text-cyan-100"
+              >
+                LineUp
+              </div>
+              <div
+                id="tickets-menu-item"
+                class="group relative cursor-pointer transition ease-in-out hover:bg-cyan-100/10 hover:text-cyan-100"
+              >
+                <div class="p-4">Tickets</div>
+                <div
+                  class="relative hidden p-2 font-normal hover:bg-cyan-100/5 group-open:block"
+                >
+                  <span>Single Day Ticket</span>
+                </div>
+                <div
+                  class="relative hidden p-2 font-normal hover:bg-cyan-100/5 group-open:block"
+                >
+                  <span>7 Day Tickets</span>
+                </div>
+              </div>
+              <div
+                class="relative p-4 hover:bg-cyan-100/10 hover:text-cyan-100"
+              >
+                Support
+              </div>
+            </div>
+          </div>
+
+          <!-- ---Desktop  -->
+          <div class="hidden flex-1 items-center justify-end md:flex">
+            <div class="menu-item">
+              <span> Home </span>
+            </div>
+            <div class="menu-item">
+              <span> LineUp </span>
+            </div>
+            <div class="menu-item group">
+              <span> Tickets </span>
+              <div
+                class="absolute top-full right-0 hidden whitespace-nowrap rounded-tl-lg rounded-br-lg bg-gradient-to-r from-cyan-50 to-rose-100 group-hover:block"
+              >
+                <div
+                  class="p-4 font-bold transition-colors ease-in-out hover:bg-slate-400/5 hover:text-rose-400"
+                >
+                  <span>Single Day Ticket</span>
+                </div>
+                <div
+                  class="p-4 font-bold transition-colors ease-in-out hover:bg-slate-400/5 hover:text-rose-400"
+                >
+                  <span>7 Day Tickets</span>
+                </div>
+              </div>
+            </div>
+            <div class="menu-item">
+              <span> Support </span>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div
+        id="light-dark-switch"
+        class="fixed z-10 top-24 right-0 inline-block h-[46px] w-[46px] rounded-l-md bg-transparent text-center text-[32px] text-fuchsia-700 dark:bg-transparent"
+      >
+        <i class="fa-solid fa-moon inline dark:hidden"></i>
+        <i class="fa-solid fa-sun hidden dark:inline"></i>
+      </div>
+      <div
+        style="background-image: url('./assets/images/hero.jpg')"
+        class="min-h-400px flex h-[calc(100vh-130px)] flex-col items-center justify-center bg-cover bg-fixed"
+      >
+        <div
+          class="rounded-xl bg-white/30 px-4 py-2 text-center text-cyan-300 backdrop:blur-md"
+        >
+          <div class="relative">
+            <img src="./assets/images/logo.png" width="160px" alt="" />
+            <div class="mt-[-65px] mb-[20px] flex items-center justify-center">
+              <div
+                class="flex h-[3.2rem] w-[3.2rem] items-center justify-center gap-1 rounded-full bg-pink-500"
+              >
+                <div
+                  class="h-2 w-1 animate-wavey bg-pink-300 animation-delay-[150]"
+                ></div>
+                <div
+                  class="h-3 w-1 animate-wavey bg-pink-200 animation-delay-[350ms]"
+                ></div>
+                <div
+                  class="h-4 w-1 animate-wavey bg-pink-50 animation-delay-600"
+                ></div>
+                <div
+                  class="h-3 w-1 animate-wavey bg-pink-200 animation-delay-[85ms]"
+                ></div>
+                <div
+                  class="h-2 w-1 animate-wavey bg-pink-300 animation-delay-600"
+                ></div>
+                <div class="h-1 w-1 animate-pulse bg-pink-300"></div>
+              </div>
+            </div>
+            <span class="text-4xl font-bold"
+              >tw:<span class="text-zinc-600">mf</span>
+            </span>
+          </div>
+        </div>
+        <label class="p-2 text-white"
+          >Keep Up to date with Our News and Promotions!</label
+        >
+        <form class="flex gap-4">
+          <input
+            type="email"
+            placeholder="Email"
+            class="sbackdrop:blur-md rounded-md border-pink-500 bg-white/30 p-2 text-pink-500 caret-pink-500 outline-pink-500 focus:border-none"
+          />
+          <button
+            class="rounded-md bg-pink-500 py-2 px-4 transition-colors ease-in hover:bg-cyan-500 hover:shadow-lg hover:shadow-rose-400"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div id="scroll-icon" class="mt-2 flex items-center justify-center p-4">
+        <div class="relative left-[2px] h-1 w-10 rotate-12 bg-gray-600"></div>
+        <div class="relative h-1 w-10 -rotate-12 bg-gray-600"></div>
+      </div>
+      <div
+        id="hls"
+        class="mx-auto ml-8 mt-12 w-[95%] p-4 dark:bg-gray-800 dark:text-zinc-100"
+      >
+        <h4>Headliners</h4>
+        <p>
+          Experience the sonic delight from these made-up artists across 7 days
+          that music fans are calling “one of the many gigs that will happen
+          this year”
+        </p>
+        <div
+          class="mt-4 flex w-full flex-1 snap-x gap-4 overflow-x-auto scroll-smooth pb-5"
+        >
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band1.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Corduray Gary</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band2.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Justin Timberlake</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band3.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Nelly</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band4.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Rihanna</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band5.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Eminem</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band6.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Bucky Robert</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+          <div class="min-w-[80%] md:min-w-[40%]">
+            <div
+              style="background-image: url('./assets/images/band7.jpg')"
+              class="h-80 w-full snap-center rounded-xl bg-cover bg-center shadow-md shadow-black/20"
+            ></div>
+            <h5 class="mt-4">Rose Rusell</h5>
+            <h6>1st of July - 9PM Main Stage</h6>
+          </div>
+
+          <!-- <div class="p-24 snap-center m-[4px] bg-pink-500  shadow-emerald-900 shadow-md rounded-md"></div>
+          <div class="p-24 snap-center m-[4px] bg-pink-500  shadow-emerald-900 shadow-md rounded-md"></div>
+          <div class="p-24 snap-center m-[4px] bg-pink-500  shadow-emerald-900 shadow-md rounded-md"></div>
+          <div class="p-24 snap-center m-[4px] bg-pink-500  shadow-emerald-900 shadow-md rounded-md"></div>
+          <div class="p-24 snap-center m-[4px] bg-pink-500  shadow-emerald-900 shadow-md rounded-md"></div>
+          <div class="p-24 snap-center m-[4px] bg-pink-500  shadow-emerald-900 shadow-md rounded-md"></div>
+          <div class="p-24 snap-center m-[4px]  bg-pink-500 shadow-emerald-900 shadow-md rounded-md "></div> -->
+        </div>
+
+        <h2 class="mt-20">Lineup</h2>
+        <p>
+          Follow the timetable and stage to ensure you don't miss your favourite
+          artists
+        </p>
+        <div
+          class="relative mt-5 rounded-lg bg-slate-200 py-4 px-2 dark:bg-slate-900 dark:text-zinc-200"
+        >
+          <div
+            class="absolute top-0 left-1/2 ml-[-8px] h-full w-4 rounded-full bg-gradient-to-b from-sky-900 to-teal-900"
+          >
+            <div class="sticky top-1/2 h-auto">
+              <div class="relative h-4 w-4">
+                <div
+                id="scroll-ball"
+                  class="absolute z-10 h-4 w-4 animate-pulse rounded-full bg-yellow-400/80"
+                ></div>
+                <div class="relative h-4 w-4 rounded-full bg-rose-500"></div>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            <div
+              class="rounded-lg bg-white p-2 text-xl font-bold dark:bg-gray-800"
+            >
+              1st July
+            </div>
+            <div></div>
+            <div class="text-right text-lg font-bold">
+              Jacky Chaston<br /><span class="text-md font-normal"
+                >6pm -Sage Stage</span
+              >
+            </div>
+            <div></div>
+            <div></div>
+            <div class="text-left text-lg font-bold">
+              Jennifer Conny<br /><span class="text-md font-normal"
+                >7pm -Platform 9Qt</span
+              >
+            </div>
+            <div class="text-right text-lg font-bold">
+              The Slimy Diamond<br /><span class="text-md font-normal"
+                >8pm -Main Stage</span
+              >
+            </div>
+            <div></div>
+            <div></div>
+            <div class="text-left text-lg font-bold">
+              Corduray Gary<br /><span class="text-md font-normal"
+                >9pm -Sage Stage</span
+              >
+            </div>
+            <div
+              class="rounded-lg bg-white p-2 text-xl font-bold dark:bg-gray-800"
+            >
+              2nd July
+            </div>
+            <div></div>
+            <div class="text-right text-lg font-bold">
+              Dastardly Spinners<br /><span class="text-md font-normal"
+                >5pm -Sage Stage</span
+              >
+            </div>
+            <div></div>
+            <div></div>
+            <div class="text-left text-lg font-bold">
+              Jennifer Conny ft. Cousin<br /><span class="text-md font-normal"
+                >5pm -Sage Stage</span
+              >
+            </div>
+            <div
+              class="rounded-lg bg-white p-2 text-xl font-bold dark:bg-gray-800"
+            >
+              Final Day July
+            </div>
+            <div></div>
+            <div class="text-right text-lg font-bold">
+              Jacky Chaston<br /><span class="text-md font-normal"
+                >6pm -Sage Stage</span
+              >
+            </div>
+            <div></div>
+            <div></div>
+            <div class="text-left text-lg font-bold">
+              The Slimy Diamond<br /><span class="text-md font-normal"
+                ><b>7pm - 11pm</b><i> Exclusive</i><br />Main Stage</span
+              >
+            </div>
+          </div>
+        </div>
+        <h2 class="mt-20">Tickets</h2>
+        <table
+          class="mt-5 table w-full table-fixed border-collapse border-none border-cyan-500"
+        >
+          <thead>
+            <td class="mx-3 my-2 font-bold">Tickets</td>
+            <td class="mx-3 my-2 font-bold">Price</td>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Single Day Ticket</td>
+              <td>30$</td>
+            </tr>
+            </tr>
+            <tr>
+              <td>7 Day Ticket</td>
+              <td>100$</td>
+            </tr>
+          </tbody>
+          <caption class="caption-bottom">
+            Now or Never!
+          </caption>
+        </table>
+      </div>
+    </main>
+  </body>
+</html>
